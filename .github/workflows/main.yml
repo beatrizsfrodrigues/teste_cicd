@@ -43,19 +43,7 @@ jobs:
       - name: Run Jest tests
         run: npm run test
 
-  coverage:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3  # Consistent v3 version
-
-      - name: Set up Node.js 20.x
-        uses: actions/setup-node@v3  # Same node version as in `jest` job
-        with:
-          node-version: "20.x"
-
-      - name: Install dependencies  # Ensure dependencies are installed
-        run: npm install
-
       - name: Publish Jest Coverage Report
         uses: ArtiomTr/jest-coverage-report-action@v2
+
+ 
