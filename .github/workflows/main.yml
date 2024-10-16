@@ -20,3 +20,21 @@ jobs:
         uses: panda0603/lint-action@1.6.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  jest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js 14.x
+        uses: actions/setup-node@v2
+        with: 
+            node-version: "20.16.0"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Jest tests
+        run: npm run test
